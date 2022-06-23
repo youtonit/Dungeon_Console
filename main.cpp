@@ -18,28 +18,27 @@ public:
         hero_health = hero_health - monster_damage;
     }
 
-};
+}
 
 void attack_unga(Stats* stat) {
   stat->operation();
 
-        if (stat->hero_health == 0) {
-            stat->result = "GAME OVER";
-            cout << stat->result;
-            return;
-        }
-        if (stat->monster_health == 0) {
-            stat->result = "GREAT!";
-            cout << stat->result;
-            return;
-        }
-        if (stat->hero_health < 100) {
-            cout << "YES, YOU DID THIS! ";
-            cout << "OH NO, YOUR HP IS " << stat->hero_health << " BE NEAT ";
-            return;
-    }
-};
-
+  if (stat->hero_health == 0) {
+  	stat->result = "GAME OVER";
+    cout << stat->result;
+    return;
+  }
+  if (stat->monster_health == 0) {
+     stat->result = "GREAT!";
+     cout << stat->result;
+     return;
+  }
+  if (stat->hero_health < 100) {
+     cout << "YES, YOU DID THIS! ";
+     cout << "OH NO, YOUR HP IS " << stat->hero_health << " BE NEAT ";
+     return;
+  }
+}
 
 int main() {
     Stats stat;
