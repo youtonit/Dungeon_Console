@@ -1,4 +1,4 @@
-# First version of Dungeon_Console
+# Second version of Dungeon_Console
 
 # A simple console game Dungeon in console
 
