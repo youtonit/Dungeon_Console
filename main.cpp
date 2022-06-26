@@ -18,27 +18,30 @@ public:
         hero_health = hero_health - monster_damage;
     }
 
-}
+};
 
-void attack_unga(Stats* stat) {
+void attack(Stats* stat) {
   stat->operation();
 
-  if (stat->hero_health == 0) {
-  	stat->result = "GAME OVER";
-    cout << stat->result;
-    return;
-  }
-  if (stat->monster_health == 0) {
-     stat->result = "GREAT!";
-     cout << stat->result;
-     return;
-  }
-  if (stat->hero_health < 100) {
-     cout << "YES, YOU DID THIS! ";
-     cout << "OH NO, YOUR HP IS " << stat->hero_health << " BE NEAT ";
-     return;
-  }
-}
+        if (stat->hero_health == 0) {
+            stat->result = "GAME OVER";
+            cout << stat->result;
+            return;
+        }
+        if (stat->monster_health == 0) {
+            int max = 100;
+            int arm = random()%max;
+            cout << "GREAT!HEY, YOU HAVE GOTTEN A ARM " << arm << "! LET'S CONTINUE!";
+            cout << stat->result;
+            return;
+        }
+        if (stat->hero_health < 100) {
+            cout << "YES, YOU DID THIS! ";
+            cout << "OH NO, YOUR HP IS " << stat->hero_health << " BE NEAT ";
+            return;
+    }
+};
+
 
 int main() {
     Stats stat;
@@ -51,18 +54,23 @@ int main() {
     stat.operation();
     while (true) {
         cout << "\n 1. Attack! ";
+        cout << "\n 2. Exit \n";
         string choose;
         cin >> choose;
 
         while (choose == "1") {
-            attack_unga(&stat);
+            attack(&stat);
             break;
         }
 
-        if (stat.result == "GAME OVER" or stat.result == "GREAT!") {
+        if (choose == "2") {
             break;
         }
 
+        if(stat.hero_health < 0) {
+            cout << "YOU DIED";
+            break;
+        }
     }
 
   return 0;
